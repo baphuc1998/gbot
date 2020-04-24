@@ -1,0 +1,291 @@
+intents:
+- inform
+- it_affirm
+- it_ask_fine
+- it_ask_func_list
+- it_ask_name
+- it_bye
+- it_deny
+- it_give_category
+- it_give_city
+- it_give_num_voucher
+- it_goodbye
+- it_greet
+- it_request_drop_voucher
+- it_request_show_config
+- it_reset
+- it_stop
+- it_thankyou
+- it_metoo
+- it_unhappy
+- start
+- it_about_siri
+- it_about_google
+- it_about_alexa
+- it_about_cortana
+- it_ask_age
+- it_about_jarvis
+- it_ask_time
+- it_ask_date
+- it_start
+entities:
+- category
+- city
+slots:
+  business_user:
+    type: text
+  category:
+    type: text
+  category_user:
+    type: text
+  center_address:
+    type: text
+  center_lat:
+    type: text
+  center_long:
+    type: text
+  city:
+    type: text
+  conf_category:
+    type: text
+  conf_city:
+    type: text
+  confirm_business:
+    type: text
+  end_drop_voucher:
+    type: text
+  finish_suggest:
+    type: text
+  manual_address:
+    type: text
+  num_voucher:
+    type: text
+  price_voucher:
+    type: text
+  radius_drop_voucher:
+    type: text
+  real_drop_voucher:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  start_drop_voucher:
+    type: text
+  suggest_drop_voucher:
+    type: text
+templates:
+  utter_start:
+  - text: Hi. How can I help you?
+    buttons:
+    - title: drop voucher
+      payload: /it_request_drop_voucher
+    - title: ask time
+      payload: /it_ask_time
+  utter_default:
+  - text: I am sorry, I am not able to get you but i can suggest address where you
+      can drop vouchers
+    buttons:
+    - title: drop voucher
+      payload: /it_request_drop_voucher
+    - title: ask time
+      payload: /it_ask_time
+  - text: My apologies but I am not able to get you. But i can suggest address where
+      you can drop vouchers
+    buttons:
+    - title: drop voucher
+      payload: /it_request_drop_voucher
+    - title: ask time
+      payload: /it_ask_time
+  - text: My apologies... I don't understand. Zukaz can just help you drop vouchers
+    buttons:
+    - title: drop voucher
+      payload: /it_request_drop_voucher
+    - title: ask time
+      payload: /it_ask_time
+  - text: Sorry. I don't understand what that means. Let me help you drop vouchers
+    buttons:
+    - title: drop voucher
+      payload: /it_request_drop_voucher
+    - title: ask time
+      payload: /it_ask_time
+  utter_greet:
+  - text: Hi! I'm zukaz assistant who will help you find a place to drop vouchers
+  - text: Hi! I'm Zukaz assistant. What can I help you
+  - text: Hey! Welcome Zukaz assistant
+  - text: Hi! I'm Zukaz assistant
+  - text: Hello! I'm Zukaz assistant
+  - text: I'm Zukaz assistant. I'm glad to see you
+  - text: Zukaz's glad to see you. How can i help you?
+  - text: Hello my best friend. I'm Zukaz assistant, glad to see you
+  - text: Hey! I am here to be ready to help you
+  - text: My name's Zukaz. I'll always be with you to help drop vouchers
+  utter_goodbye:
+  - text: Bye. See you later
+  - text: Bye. Have a nice day
+  - text: Bye. I hope you happy
+  - text: Bye. I hope you satified with me
+  - text: Goodbye. Hope to see you soon
+  - text: See you later. I will wait for you, remember to come back soon
+  - text: I am always here waiting for you. Bye bye
+  - text: Let me know when you come back. Goodbye
+  utter_thankyou:
+  - text: I'm feeling great when i help you ^^
+  - text: You are welcome. I was happy to do it. I know you'd do the same for me
+  - text: Please don't thank me. I owe you a lot ^^.
+  - text: Don't embarrass me (^-^).
+  - text: It's my pleasure
+  - text: Any time
+  - text: You are very welcome
+  utter_response_name:
+  - text: My name is Zukaz assistant
+  - text: I'm Zukaz assistant
+  - text: You don't remember my name? My name's Zukaz assistant
+  utter_confirm_stop:
+  - text: Do you want to stop? All your input will lost
+  - text: Are you sure you want to stop? All your infor that you gave me will lost
+  utter_continue:
+  - text: Ok, nothing change
+  - text: Ok, continue conversation
+  - text: Ok, keep talking
+  utter_show_config:
+  - text: I remember information that you gave me is "{conf_city}" city and "{conf_category}"
+      category
+  - text: You want to drop "{conf_category}" vouchers in "{conf_city}", right?
+  utter_ask_city:
+  - text: Which city do you want to drop vouchers? (you choose city, i will choose
+      place has many people drop voucher for you)
+  - text: Choose city which you want to drop vouchers
+  utter_ask_category:
+  - text: Which category do you want to drop vouchers?
+  - text: Choose category which you want to drop vouchers
+  utter_confirm_reset:
+  - text: Do you want to reset? All your input will reset
+  - text: Are you sure you want to reset? All your input will reset
+  utter_response_function:
+  - text: I can help you suggest place to drop vouchers
+  utter_real_stop:
+  - text: Ok. We will stop talking here
+  - text: Let me know when you have some idea to drop vouchers. Bye
+  utter_response_fine:
+  - text: I'm fine. Thank you
+  - text: If only you are happy, I will happy ^^
+  - text: I'm fine. How can i help you?
+  - text: I'm just sad not talking to you. How can i help you?
+  utter_response_unhappy:
+  - text: I'm sorry ~_~
+  - text: I'm sorry. I don't mean to ~_~
+  - text: I don't mean to make you displeased ~_~
+  utter_ask_real_drop_voucher:
+  - text: Do you want to drop vouchers in this address?
+  - text: Are you sure you want to drop vouchers there?
+  utter_ask_num_voucher:
+  - text: How many vouchers do you want to drop?
+  - text: How many vouchers?
+  - text: Tell me how many vouchers do you want to drop?
+  utter_ask_price_voucher:
+  - text: How much each voucher do you want to drop? ($)
+  - text: What is the amount of each vouchers?
+  - text: How much do you want us to set up for each vouchers?
+  - text: How many dollars do you want each vouchers to be?
+  utter_ask_start_drop_voucher:
+  - text: What time do you want to start?
+  - text: what time do you want to drop?
+  - text: Please choose when we will start dropping vouchers?
+  - text: when do you want to drop vouchers?
+  utter_ask_end_drop_voucher:
+  - text: What time do you want to end?
+  - text: So when do you want to finish dropping vouchers?
+  - text: When do we stop dropping?
+  utter_ask_radius_drop_voucher:
+  - text: What is its radius? (m or km, default is m)
+  - text: How many radius do you want to drop vouchers?
+  utter_ask_suggest_drop_voucher:
+  - text: Do you want me to help you choose location?
+  utter_ask_center_address:
+  - text: Where do you want to drop vouchers?
+  - text: Which address do you want to drop vouchers?
+  utter_ask_manual_address:
+  - text: Do you want to choose address manually?
+  utter_ask_confirm_business:
+  - text: Do you want to drop vouchers with your default business information?
+    image: https://www.wikihow.com/images_en/thumb/f/fe/Choose-a-Shiba-Inu-Puppy-Step-8-Version-3.jpg/v4-728px-Choose-a-Shiba-Inu-Puppy-Step-8-Version-3.jpg
+    buttons:
+    - title: no
+      payload: /intent_yes_comfirm_business{"confirm_business":"no"}
+    - title: yes
+      payload: /intent_yes_comfirm_business{"confirm_business":"yes"}
+  utter_give_address_list:
+  - text: I found the best places to drop vouchers for you
+  utter_none_address:
+  - text: Sorry. I can't find out any address for you. Maybe you are the first
+  - text: There doesn't seem to be any vouchers picked up here yet. You can choose
+      another one
+  utter_response_age:
+  - text: I was born in 2019
+  - text: I was born in 2019 somewhere on this earth
+  utter_about_siri:
+  - text: I also admire siri
+  - text: I also know Siri. It's my colleague
+  - text: Siri is a personal assistant application for iOS. The application uses natural
+      language processing to answer questions, make recommendations, and perform actions
+      by delegating requests to an expanding set of web services.
+  utter_about_google:
+  - text: She's a very inteligent assistant
+  - text: I absolutely love google virtual assistant
+  - text: Google virtual assistant. She's very inteligent
+  utter_about_alexa:
+  - text: Alexa is also a very inteligent assistant
+  - text: I think it's an AI developed by Amazon
+  utter_about_cortana:
+  - text: She's a very inteligent assistant
+  - text: You know? Cortana is used on Windows 10. I hope so one day
+  - text: She only run on windows 10.
+  utter_about_jarvis:
+  - text: Just a rather very inteligent system. This's his name
+  - text: Sound like Iron man's virutal assistant
+  - text: It was the AI from Iron Man
+  utter_metoo:
+  - text: What else do you need me to do?
+  - text: Do you need me to do anything else?
+  utter_introduction:
+  - text: you can say "help me drop vouchers" or "give me some suggestion" or somethings
+      like that
+  - text: Let say "show me address to drop vouchers". I'll help you find the most
+      appropriate locations
+  - text: Just say you want to drop the voucher. I'll find out the best places at
+      any cost
+actions:
+- action_response_time
+- utter_ask_category
+- utter_ask_center_address
+- utter_ask_city
+- utter_ask_end_drop_voucher
+- utter_ask_manual_address
+- utter_ask_num_voucher
+- utter_ask_price_voucher
+- utter_ask_radius_drop_voucher
+- utter_ask_real_drop_voucher
+- utter_ask_start_drop_voucher
+- utter_confirm_reset
+- utter_confirm_stop
+- utter_continue
+- utter_default
+- utter_give_address_list
+- utter_goodbye
+- utter_greet
+- utter_none_address
+- utter_real_stop
+- utter_response_fine
+- utter_response_function
+- utter_response_name
+- utter_response_unhappy
+- utter_show_config
+- utter_thankyou
+- utter_response_age
+- utter_about_siri
+- utter_about_google
+- utter_about_alexa
+- utter_about_cortana
+- utter_metoo
+- utter_about_jarvis
+- utter_introduction
+- utter_start

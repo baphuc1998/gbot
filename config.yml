@@ -1,0 +1,35 @@
+language: "en"
+pipeline: 
+- name: "tokenizer_whitespace"
+- name: "intent_entity_featurizer_regex"
+# - name: "ner_crf"
+- name: "ner_synonyms"
+- name: CountVectorsFeaturizer
+  OOV_token: oov
+  token_pattern: (?u)\b\w+\b
+- name: "EmbeddingIntentClassifier"
+- name: "EntitySynonymMapper"
+- name: "ner_crf"
+  "BILOU_flag": False,
+  "features": [
+            ["prefix5","suffix3"
+            ],
+            ["pattern"],
+            ["prefix5","suffix3"]]
+            
+  intent_tokenization_flag: true
+  intent_split_symbol: "+"
+# - name: "ner_duckling_http"
+#   url: "http://127.0.0.1:8000"
+#   dimensions: ["email", "duration", "time", "amount-of-money", "number", "phone-number", "distance"] 
+
+policies:
+  - name: KerasPolicy
+    epochs: 150
+    max_history: 6
+  - name: FallbackPolicy
+  - name: MemoizationPolicy
+  - name: FormPolicy
+  - name: MappingPolicy
+  - name: AugmentedMemoizationPolicy
+    max_history: 6

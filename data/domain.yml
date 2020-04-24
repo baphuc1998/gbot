@@ -1,0 +1,123 @@
+slots:
+  category:
+    type: text
+
+  city:
+    type: text
+
+  requested_slot:
+    type: unfeaturized
+
+entities:
+- category
+- city
+
+intents:
+- greet
+- inform_yes
+- inform_no
+- ask_name
+- ask_func_list
+- give_city
+- give_category
+- thanks
+- bye
+
+actions:
+- action_restart
+- action_get_drop_voucher
+- utter_greet
+- utter_help
+- utter_bye
+- utter_default
+- utter_ask_drop_voucher
+- utter_anything_else
+- action_handle_unclear
+- utter_ask_function
+- utter_save_city_drop_voucher
+- utter_save_category_drop_voucher
+- action_save_city
+- action_save_category
+- suggest_drop_voucher
+- utter_slots_values
+- utter_choose_city
+- utter_choose_category
+- utter_comfirm_stop
+- utter_real_stop
+- utter_continue
+- action_slot_reset
+
+templates:
+  utter_comfirm_stop:
+    - text: Do you want to stop?
+  utter_real_stop:
+    - text: Ok, I reset your input
+  utter_continue:
+    - text: ok, we are continue
+    
+  utter_greet:
+    - text: Hey, how are you?
+    - text: Hello, How are you doing?
+
+  utter_reply:
+    - text: I'm doing great. Please let me know what I can do for you.
+    - text: I'm doing great. Tell me How can I help you today?
+  utter_help:
+    - text: Great. How can I help you?
+    - text: Great. Tell me How can I help you?
+    - text: Great. Tell me what all news you would like to get.
+
+  utter_slots_values:
+    - text: "utter_slots_values:\n
+             - category: {category}\n
+             - city: {city}"
+
+  utter_ask_function:
+    - I can will show you address you can drop voucher !
+
+  utter_choose_city:
+    - Choose city to drop voucher, please !
+    - Which city do you want to drop voucher
+  utter_choose_category:
+    - Choose category to drop voucher, please !
+    - Which category do you want to drop voucher
+
+  utter_ask_drop_voucher:
+    - which city and category you want drop voucher ?
+
+  utter_save_city_drop_voucher:
+    - Your city is {city}
+  
+  
+  utter_save_category_drop_voucher:
+    - Your category is {category}
+
+  forms:
+    - suggest_drop_voucher
+
+
+  utter_anything_else:
+    - text: No worries. Is there anything else I can help you with?
+    - text: No worries. Let me know if there is anything else I can help you with
+
+  utter_bye:
+    - text: Bye and have a nice day
+    - text: Bbye and have a nice day
+
+  utter_default:
+    - text: I am not sure what you're aiming for
+    - text: I am sorry but I am not able to get you.
+    - text: My appologies but I am not able to get you
+
+
+
+policies:
+  - name: KerasPolicy
+    epochs: 100
+    batch_size: 20
+    max_history: 5
+  - name: FallbackPolicy
+    fallback_action_name: 'utter_default'
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: FormPolicy
